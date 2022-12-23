@@ -1,5 +1,5 @@
-const {userService, emailService, s3Service} = require("../services");
-const {emailActionsConfig} = require("../configs");
+const { userService, emailService, s3Service } = require("../services");
+const { emailActionsConfig } = require("../configs");
 const UserDb = require("../dataBases/User");
 
 module.exports = {
@@ -26,8 +26,6 @@ module.exports = {
     createUser: async (req, res, next) => {
         try{
             const user = await UserDb.createWithHashPass(req.body)
-            // const hashedPass = await authService.hashPassword(req.body.password)
-            // const user = await userService.createUser({...req.body, password: hashedPass})
 
             res.json(user)
         }catch (e) {
@@ -66,9 +64,10 @@ module.exports = {
 
     uploadAvatar: async (req, res, next) => {
         try {
-            await s3Service.uploadPublicFile(req.files.avatar, 'users', req.params.userId)
+            const uploadData = await s3Service.uploadPublicFile(req.files.avatar, 'users', req.params.userId)
+            const updatedUser = await userService.updateUser(req.params.userId,{avatar: uploadData.Location})
 
-            res.json('loaded')
+            res.json(updatedUser)
         }catch (e) {
             next(e)
         }

@@ -1,9 +1,9 @@
 const nodemailer = require('nodemailer');
 const hbs = require('nodemailer-express-handlebars');
-const path = require('path');
-const {envsConfig} = require("../configs");
-const emailTemplates = require('../emailTemplates/index')
-const {apiError} = require("../errors");
+const path = require('node:path');
+const { envsConfig } = require("../configs");
+const emailTemplates = require('../emailTemplates/index');
+const { apiError } = require("../errors");
 
 const sendEmail = async (receiver, emailAction, context = {}) => {
     const transporter = nodemailer.createTransport({

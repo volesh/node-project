@@ -1,7 +1,7 @@
-const s3 = require('aws-sdk/clients/s3')
+const s3 = require('aws-sdk/clients/s3');
 const uuid = require('uuid').v1
-const path = require('node:path')
-const {envsConfig} = require("../configs");
+const path = require('node:path');
+const { envsConfig } = require("../configs");
 
 const s3Bucket = new s3({
     region: envsConfig.S3_BUCKET_REGION,

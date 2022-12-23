@@ -1,6 +1,6 @@
-const twilio = require('twilio')
-const {envsConfig} = require('../configs')
-const smsTemplates = require('../smsTemplates/smsTemplates')
+const twilio = require('twilio');
+const { envsConfig } = require('../configs');
+const smsTemplates = require('../smsTemplates/smsTemplates');
 
 const client = twilio(envsConfig.TWILIO_ACCOUNT_SID, envsConfig.TWILIO_AUTH_TOKEN)
 

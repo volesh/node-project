@@ -1,6 +1,6 @@
-const {authService, emailService, userService, smsService} = require("../services");
-const {apiError} = require("../errors");
-const {emailActionsConfig, envsConfig, tokensTypeConfig, smsActionsConfig} = require("../configs");
+const { authService, emailService, userService, smsService } = require("../services");
+const { apiError } = require("../errors");
+const { emailActionsConfig, envsConfig, tokensTypeConfig, smsActionsConfig } = require("../configs");
 
 
 

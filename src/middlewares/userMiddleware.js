@@ -1,7 +1,7 @@
-const {userValidator} = require("../validators");
-const {apiError} = require("../errors");
-const {userService} = require("../services");
-const {isObjectIdOrHexString} = require("mongoose");
+const { userValidator } = require("../validators");
+const { apiError } = require("../errors");
+const { userService } = require("../services");
+const { isObjectIdOrHexString } = require("mongoose");
 
 module.exports = {
     isUserExist: (fieldName, findIn = 'body', dbField = fieldName) => async (req, res, next) => {

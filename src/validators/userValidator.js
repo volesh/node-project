@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const {regexConfig} = require("../configs");
+const { regexConfig } = require("../configs");
 
 module.exports = {
     newUserValidator: Joi.object({

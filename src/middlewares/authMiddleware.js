@@ -1,8 +1,9 @@
-const {authValidator} = require("../validators");
-const {apiError} = require("../errors");
-const {AuthDb, TokenDb} = require("../dataBases");
-const {authService} = require("../services");
-const {tokensTypeConfig} = require("../configs");
+const { authValidator } = require("../validators");
+const { apiError } = require("../errors");
+const AuthDb = require('../dataBases/Auth');
+const TokenDb = require('../dataBases/Token');
+const { authService } = require("../services");
+const { tokensTypeConfig } = require("../configs");
 
 module.exports = {
     isLoginValid: (req, res, next) => {

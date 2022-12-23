@@ -1,4 +1,4 @@
-const {userRouter, authRouter} = require("./index");
+const { userRouter, authRouter } = require("./index");
 const apiRouter = require('express').Router()
 
 

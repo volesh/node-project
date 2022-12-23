@@ -6,12 +6,11 @@ const utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
 
 module.exports = new CronJob(
-    '0 * * * * *',
+    '* 0 * * * *',
     async function() {
         try{
-            const weekAgo = dayjs().utc().subtract(1, 'week')
-            await AuthDb.deleteMany({createdAt: {$lte: weekAgo}})
-            console.log('access deleted')
+            const monthAgo = dayjs().utc().subtract(1, 'month')
+            await AuthDb.deleteMany({createdAt: {$lte: monthAgo}})
         }catch (e) {
             console.log(e.message)
         }

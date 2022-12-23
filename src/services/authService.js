@@ -1,8 +1,9 @@
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const {envsConfig, tokensTypeConfig} = require("../configs");
-const {apiError} = require("../errors");
-const {AuthDb, TokenDb} = require('../dataBases')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { envsConfig, tokensTypeConfig } = require("../configs");
+const { apiError } = require("../errors");
+const AuthDb = require('../dataBases/Auth');
+const TokenDb = require('../dataBases/Token');
 
 module.exports = {
     hashPassword: async (pass) => bcrypt.hash(pass, 10),
@@ -33,8 +34,7 @@ module.exports = {
     },
 
     generateActionToken: (data, secretWord) => {
-        const actionToken = jwt.sign(data, secretWord, {expiresIn: '1d'})
-        return actionToken
+        return  jwt.sign(data, secretWord, {expiresIn: '1d'})
     },
 
     createToken: async (data) => {
